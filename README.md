@@ -53,3 +53,8 @@ git clone https://github.com/Tukigase/web-component-library.git
 \`\`\`
 
 詳しい使い方、カスタマイズ方法、CSS変数の一覧については `doc/USAGE.md` を参照してください。
+
+## 📄 ライセンス (License)
+
+このプロジェクトは [MIT License](LICENSE) のもとで公開されています。
+商用・非商用問わず、誰でも自由に利用・改変・再配布が可能です。
