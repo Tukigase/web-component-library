@@ -1,0 +1,18 @@
+/* css/component.css */
+/* コンポーネント内で共通して使用するベースリセットや基本スタイル */
+
+:host {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+:host *,
+:host *::before,
+:host *::after {
+    box-sizing: inherit;
+}
+
+/* 非表示用のユーティリティ */
+.hidden {
+    display: none !important;
+}
