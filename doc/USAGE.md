@@ -73,3 +73,23 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 | `--atp-icon-color` | `#666666` | `#94a3b8` | 入力欄右側の時計アイコンの色 |
 
 ※ ダークモードは `prefers-color-scheme: dark` により自動的に適用されます。
+
+
+### 💡 ちらつき（FOUC）防止の推奨設定
+
+JavaScriptが読み込まれてコンポーネントが完全に定義されるまでのほんの一瞬、スタイルが当たっていない状態（FOUC）で表示されて画面がカクつくのを防ぐため、ご利用のサイトのベースCSSに以下の記述を追加することを強く推奨します。
+
+```css
+/* カスタム要素の定義が完了するまでは透明にしておく */
+analog-time-picker:not(:defined) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 定義されたらふわっと表示する */
+analog-time-picker {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+```
