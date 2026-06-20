@@ -57,7 +57,11 @@
 git clone https://github.com/Tukigase/web-component-library.git
 ```
 
-詳しい使い方、カスタマイズ方法、CSS変数の一覧については `doc/USAGE.md` を参照してください。
+## 📖 ドキュメント & ライブデモ
+
+- 📄 **[詳細な使い方ガイド](https://github.com/Tukigase/web-component-library/blob/main/doc/USAGE.md)**: 属性（Attributes）の一覧や、テーマを変更するためのCSS変数リファレンスはこちらをご覧ください。
+- 🌐 **[オンライン見本サイト（ライブデモ）](https://tukigase.github.io/web-component-library/doc/)**: ブラウザ上で実際にコンポーネントを動かしたり、テーマカスタマイズやフォーム送信の挙動を確認できるデモページです。
+
 
 ## 📄 ライセンス (License)
 
