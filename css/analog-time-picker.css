@@ -1,0 +1,175 @@
+/* css/analog-time-picker.css */
+
+:host {
+    display: inline-block;
+
+    /* ============================================================
+     2層変数パターン:
+     外部から '--atp-xxx' が指定されていればそれを優先（varの第1引数）、
+     指定されていなければデフォルト値（varの第2引数）を内部変数 '--_xxx' にセット
+     ============================================================
+  */
+    --_primary: var(--atp-primary, #007bff);
+    --_bg: var(--atp-bg, #ffffff);
+    --_text-main: var(--atp-text-main, #333333);
+    --_text-sub: var(--atp-text-sub, #888888);
+    --_input-bg: var(--atp-input-bg, #ffffff);
+    --_input-border: var(--atp-input-border, #cccccc);
+    --_clock-bg: var(--atp-clock-bg, #e0e5ec);
+    --_clock-shadow: var(--atp-clock-shadow, inset 2px 2px 5px rgba(0, 0, 0, 0.05));
+    --_popup-shadow: var(--atp-popup-shadow, 0 8px 24px rgba(0, 0, 0, 0.15));
+    --_icon-color: var(--atp-icon-color, #666666);
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    :host {
+        /* 外部指定がない場合のデフォルト値をダークモード向けに変更 */
+        --_primary: var(--atp-primary, #60a5fa);
+        --_bg: var(--atp-bg, #1e293b);
+        --_text-main: var(--atp-text-main, #f8fafc);
+        --_text-sub: var(--atp-text-sub, #64748b);
+        --_input-bg: var(--atp-input-bg, #0f172a);
+        --_input-border: var(--atp-input-border, #334155);
+        --_clock-bg: var(--atp-clock-bg, #334155);
+        --_clock-shadow: var(--atp-clock-shadow, inset 2px 2px 5px rgba(0, 0, 0, 0.3));
+        --_popup-shadow: var(--atp-popup-shadow, 0 8px 24px rgba(0, 0, 0, 0.5));
+        --_icon-color: var(--atp-icon-color, #94a3b8);
+    }
+}
+
+/* ==========================================
+   コンポーネント構造のスタイル (内部変数 '--_xxx' を適用)
+========================================== */
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.time-input {
+    font-size: 1.2rem;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid var(--_input-border);
+    border-radius: 8px;
+    width: 120px;
+    background-color: var(--_input-bg);
+    color: var(--_text-main);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: var(--_primary);
+}
+
+.time-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--_icon-color);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s;
+}
+
+.time-icon:hover {
+    color: var(--_primary);
+}
+
+.clock-popup {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background-color: var(--_bg);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--_popup-shadow);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clock-popup.show {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.time-display {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--_text-sub);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.time-part {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.time-part.active {
+    color: var(--_primary);
+}
+
+.clock-container {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-color: var(--_clock-bg);
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--_clock-shadow);
+    touch-action: none;
+}
+
+.clock-number {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: var(--_text-main);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.hand {
+    width: 4px;
+    height: 38%;
+    background-color: var(--_primary);
+    position: absolute;
+    bottom: 50%;
+    left: calc(50% - 2px);
+    transform-origin: bottom center;
+    border-radius: 4px;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.center-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--_primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}

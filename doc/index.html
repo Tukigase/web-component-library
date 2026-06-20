@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Documentation & Demo</title>
+  
+  <script type="module" src="../js/component.js"></script>
+
+  <style>
+    /* ドキュメントページのスタイル */
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9fafb;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background-color: #0f172a; color: #f1f5f9; }
+      .demo-box { background-color: #1e293b; border-color: #334155; }
+      code { background-color: #334155; color: #cbd5e1; }
+    }
+    
+    h1 { border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+    h2 { margin-top: 40px; color: #007bff; }
+    
+    .demo-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+      color: #b91c1c;
+    }
+
+    /* カスタムテーマ用のクラス（特定の場所だけ色を変える） */
+    .custom-theme {
+      --atp-primary: #10b981;    /* エメラルドグリーン */
+      --atp-clock-bg: #d1fae5;
+      --atp-icon-color: #10b981;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Custom Web Components Demo</h1>
+  <p>ここでは、構築したコンポーネント群の動作確認と使い方のデモを行います。</p>
+
+  <h2>1. 基本的な使い方 (デフォルト設定)</h2>
+  <p>JSをインポートして、<code>&lt;analog-time-picker&gt;</code> タグを置くだけです。</p>
+  <div class="demo-box">
+    <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">時間の選択:</label>
+    <analog-time-picker name="default_time" value="12:00"></analog-time-picker>
+  </div>
+
+  <h2>2. フォームとの連携</h2>
+  <p>ネイティブの <code>&lt;input&gt;</code> と同様に、フォームの送信データとして扱われます。</p>
+  <div class="demo-box">
+    <form id="demoForm" onsubmit="event.preventDefault(); alert('送信された値: ' + new FormData(this).get('meeting_time'));">
+      <div style="margin-bottom: 15px;">
+        <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">MTG開始時間:</label>
+        <analog-time-picker name="meeting_time" value="15:30"></analog-time-picker>
+      </div>
+      <button type="submit" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        送信テスト (アラート表示)
+      </button>
+    </form>
+  </div>
+
+  <h2>3. テーマのカスタマイズ (CSS変数)</h2>
+  <p>親要素からCSS変数を上書きすることで、コンポーネント内のデザインを変更できます。</p>
+  <div class="demo-box custom-theme">
+    <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">グリーンテーマ:</label>
+    <analog-time-picker value="08:45"></analog-time-picker>
+    <p style="font-size: 0.8em; margin-top: 15px; color: #666;">
+      <code>--atp-primary</code> などをエメラルドグリーンに上書きしています。
+    </p>
+  </div>
+
+</body>
+</html>
