@@ -7,13 +7,13 @@
 HTMLファイル内でJSを読み込み、タグを記述するだけで機能します。
 CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で直接インポート可能です。
 
-\`\`\`html
+```html
 <script type="module" src="https://cdn.jsdelivr.net/gh/Tukigase/web-component-library@main/js/component.js"></script>
 
 <analog-time-picker></analog-time-picker>
 
 <analog-time-picker name="meeting_time" value="15:30"></analog-time-picker>
-\`\`\`
+```
 
 ### 利用可能な属性 (Attributes)
 | 属性名  | 説明 | 初期値 | 例 |
@@ -27,7 +27,7 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 
 標準的な `<input>` 要素と全く同じように扱えます。`<form>` タグで囲んで送信ボタンを押すと、自動的に指定した `name` で値が送信されます。JavaScriptから `FormData` で取得することも可能です。
 
-\`\`\`html
+```html
 <form action="/api/submit" method="POST">
   <label>お名前:</label>
   <input type="text" name="username">
@@ -37,7 +37,7 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 
   <button type="submit">送信</button>
 </form>
-\`\`\`
+```
 
 ---
 
@@ -48,14 +48,14 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 
 ### カスタマイズ例：ブランドカラーを赤にする
 
-\`\`\`css
+```css
 /* サイト全体に適用する場合 */
 :root {
   --atp-primary: #ef4444;       /* 針やアクティブな文字の色を赤に */
   --atp-clock-bg: #fffbeb;      /* 時計の背景を薄い黄色に */
   --atp-icon-color: #ef4444;    /* アイコンの色も赤に */
 }
-\`\`\`
+```
 
 ### CSS変数一覧
 
