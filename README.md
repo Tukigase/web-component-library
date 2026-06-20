@@ -12,7 +12,7 @@
 
 ## 📂 ディレクトリ構成
 
-\`\`\`text
+```text
 .
 ├── README.md              # このファイル
 ├── css/                   # コンポーネント用CSS群
@@ -24,13 +24,13 @@
 └── doc/                   # ドキュメント・デモ
     ├── USAGE.md           # 詳細な使い方ドキュメント
     └── index.html         # 動作確認用デモページ
-\`\`\`
+```
 
 ## 🚀 クイックスタート
 
 ファイルをプロジェクトにダウンロードしなくても、CDN経由で1行読み込むだけですぐに利用できます。
 
-\`\`\`html
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -44,13 +44,13 @@
 
 </body>
 </html>
-\`\`\`
+```
 
 ### ローカルでの開発・利用
 リポジトリをクローンして利用する場合は以下のようになります。
-\`\`\`bash
+```bash
 git clone https://github.com/Tukigase/web-component-library.git
-\`\`\`
+```
 
 詳しい使い方、カスタマイズ方法、CSS変数の一覧については `doc/USAGE.md` を参照してください。
 
