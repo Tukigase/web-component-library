@@ -116,7 +116,20 @@
     </form>
   </div>
 
-  <h2>3. テーマのカスタマイズ (CSS変数)</h2>
+  <h2>3. 12時間制 / 24時間制の切り替え</h2>
+  <p><code>format</code> 属性を使って、12時間制（1重リング）と24時間制（2重リング）を切り替えることができます。デフォルトは24時間制です。</p>
+  <div class="demo-box" style="display: flex; gap: 40px; flex-wrap: wrap;">
+    <div>
+      <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">24時間制 (デフォルト):</label>
+      <analog-time-picker value="18:30"></analog-time-picker>
+    </div>
+    <div>
+      <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">12時間制 (<code>format="12"</code>):</label>
+      <analog-time-picker format="12" value="06:30"></analog-time-picker>
+    </div>
+  </div>
+
+  <h2>4. テーマのカスタマイズ (CSS変数)</h2>
   <p>親要素からCSS変数を上書きすることで、コンポーネント内のデザインを変更できます。</p>
   <div class="demo-box custom-theme">
     <label style="display:block; margin-bottom: 8px; font-size: 0.9em;">グリーンテーマ:</label>

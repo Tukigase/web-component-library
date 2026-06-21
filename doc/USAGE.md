@@ -13,6 +13,8 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 <analog-time-picker></analog-time-picker>
 
 <analog-time-picker name="meeting_time" value="15:30"></analog-time-picker>
+
+<analog-time-picker format="12" value="08:00"></analog-time-picker>
 ```
 
 ### 利用可能な属性 (Attributes)
@@ -20,6 +22,7 @@ CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で
 | :--- | :--- | :--- | :--- |
 | `value` | 初期表示される時刻（`HH:MM` 形式）。 | `12:00` | `value="09:15"` |
 | `name`  | フォーム送信時のパラメータ名。 | (なし) | `name="start_time"` |
+| `format`| 時計の表示形式。`24` で2重リング、`12` で1重リングになります。 | `24` | `format="12"` |
 
 ---
 
