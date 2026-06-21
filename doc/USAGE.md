@@ -8,7 +8,7 @@ HTMLファイル内でJSを読み込み、タグを記述するだけで機能�
 CDN（jsDelivr）を利用すると、ファイルのダウンロード不要で直接インポート可能です。
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/Tukigase/web-component-library@main/js/component.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/Tukigase/web-component-library@1.0.0/js/component.js"></script>
 
 <analog-time-picker></analog-time-picker>
 

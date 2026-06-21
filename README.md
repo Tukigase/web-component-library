@@ -37,7 +37,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Quick Start</title>
-  <script type="module" src="https://cdn.jsdelivr.net/gh/Tukigase/web-component-library@main/js/component.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/Tukigase/web-component-library@1.0.0/js/component.js"></script>
   <style>
     /* 読み込み前の一瞬のレイアウト崩れを防ぐ推奨設定 */
     analog-time-picker:not(:defined) { opacity: 0; visibility: hidden; }
